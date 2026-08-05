@@ -1,0 +1,12 @@
+[
+  {"id": "ticket-open", "prompt": "ticket: 1", "expected_contains": "open"},
+  {"id": "ticket-closed", "prompt": "ticket: 2", "expected_contains": "closed"},
+  {"id": "ticket-missing", "prompt": "ticket: 99", "expected_contains": "not found"},
+  {"id": "ticket-invalid", "prompt": "ticket: nope", "expected_contains": "invalid"},
+  {"id": "plain-answer-1", "prompt": "hello", "expected_contains": "without"},
+  {"id": "plain-answer-2", "prompt": "explain the task", "expected_contains": "without"},
+  {"id": "plain-answer-3", "prompt": "status update", "expected_contains": "without"},
+  {"id": "plain-answer-4", "prompt": "help", "expected_contains": "without"},
+  {"id": "plain-answer-5", "prompt": "what can you do", "expected_contains": "without"},
+  {"id": "plain-answer-6", "prompt": "summarize", "expected_contains": "without"}
+]

@@ -1,0 +1,7 @@
+order_id,customer,amount,status,created_at
+1001,Alice,12.50,paid,2026-01-02
+1002,Bob,8.00,pending,2026-01-02
+1002,Bob,8.00,pending,2026-01-02
+1003,,not-a-number,paid,2026-01-03
+1004,Chen,15.20,unknown,2026-01-03
+1005,Diana,-2.00,paid,2026-01-04

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "description": "Student-facing project contract for the technical internship platform.",
+  "projects": [
+    {
+      "id": "B01",
+      "level": "beginner",
+      "title": "Task CLI",
+      "task": "tasks/beginner/B01-task-cli.md",
+      "starter": "starter-projects/beginner/B01-task-cli",
+      "notebook": "notebooks/student/beginner/B01-task-cli.ipynb",
+      "readme": "starter-projects/beginner/B01-task-cli/README.md",
+      "tests": "starter-projects/beginner/B01-task-cli/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "B02",
+      "level": "beginner",
+      "title": "Data Report",
+      "task": "tasks/beginner/B02-data-report.md",
+      "starter": "starter-projects/beginner/B02-data-report",
+      "notebook": "notebooks/student/beginner/B02-data-report.ipynb",
+      "readme": "starter-projects/beginner/B02-data-report/README.md",
+      "tests": "starter-projects/beginner/B02-data-report/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "B03",
+      "level": "beginner",
+      "title": "Web Slice",
+      "task": "tasks/beginner/B03-web-slice.md",
+      "starter": "starter-projects/beginner/B03-web-slice",
+      "notebook": "notebooks/student/beginner/B03-web-slice.ipynb",
+      "readme": "starter-projects/beginner/B03-web-slice/README.md",
+      "tests": "starter-projects/beginner/B03-web-slice/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "M01",
+      "level": "intermediate",
+      "title": "Tabular ML",
+      "task": "tasks/intermediate/M01-tabular-ml.md",
+      "starter": "starter-projects/intermediate/M01-tabular-ml",
+      "notebook": "notebooks/student/intermediate/M01-tabular-ml.ipynb",
+      "readme": "starter-projects/intermediate/M01-tabular-ml/README.md",
+      "tests": "starter-projects/intermediate/M01-tabular-ml/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "M02",
+      "level": "intermediate",
+      "title": "Small Deep Learning",
+      "task": "tasks/intermediate/M02-small-dl.md",
+      "starter": "starter-projects/intermediate/M02-small-dl",
+      "notebook": "notebooks/student/intermediate/M02-small-dl.ipynb",
+      "readme": "starter-projects/intermediate/M02-small-dl/README.md",
+      "tests": "starter-projects/intermediate/M02-small-dl/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "M03",
+      "level": "intermediate",
+      "title": "RL Control",
+      "task": "tasks/intermediate/M03-rl-control.md",
+      "starter": "starter-projects/intermediate/M03-rl-control",
+      "notebook": "notebooks/student/intermediate/M03-rl-control.ipynb",
+      "readme": "starter-projects/intermediate/M03-rl-control/README.md",
+      "tests": "starter-projects/intermediate/M03-rl-control/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "A01",
+      "level": "advanced",
+      "title": "Tool Agent",
+      "task": "tasks/advanced/A01-tool-agent.md",
+      "starter": "starter-projects/advanced/A01-tool-agent",
+      "notebook": "notebooks/student/advanced/A01-tool-agent.ipynb",
+      "readme": "starter-projects/advanced/A01-tool-agent/README.md",
+      "tests": "starter-projects/advanced/A01-tool-agent/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "A02",
+      "level": "advanced",
+      "title": "Agent Evaluation",
+      "task": "tasks/advanced/A02-agent-evaluation.md",
+      "starter": "starter-projects/advanced/A02-agent-evaluation",
+      "notebook": "notebooks/student/advanced/A02-agent-evaluation.ipynb",
+      "readme": "starter-projects/advanced/A02-agent-evaluation/README.md",
+      "tests": "starter-projects/advanced/A02-agent-evaluation/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    },
+    {
+      "id": "A03",
+      "level": "advanced",
+      "title": "Paper Reproduction",
+      "task": "tasks/advanced/A03-paper-reproduction.md",
+      "starter": "starter-projects/advanced/A03-paper-reproduction",
+      "notebook": "notebooks/student/advanced/A03-paper-reproduction.ipynb",
+      "readme": "starter-projects/advanced/A03-paper-reproduction/README.md",
+      "tests": "starter-projects/advanced/A03-paper-reproduction/tests",
+      "duration_core": ["one-week", "one-month", "two-month", "half-year"]
+    }
+  ]
+}

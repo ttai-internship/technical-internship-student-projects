@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.venv*/
+venv/
+env/
+.conda/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+.vscode/settings.json
+
+# Generated files
+artifacts/
+reports/generated/
+*.log
+executed-notebook.ipynb
+
+# OS
+.DS_Store
+Thumbs.db

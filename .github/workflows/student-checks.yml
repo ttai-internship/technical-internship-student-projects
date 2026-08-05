@@ -1,0 +1,35 @@
+name: student-checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  all-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: "latest"
+          enable-cache: true
+
+      - name: Install locked project environment
+        run: uv sync --all-groups --locked --python 3.10
+
+      - name: Validate student project contract
+        run: uv run --locked python scripts/validate_projects.py
+
+      - name: Run public tests
+        run: uv run --locked python scripts/run_public_tests.py
+
+      - name: Execute student notebooks
+        run: uv run --locked python scripts/run_notebooks.py
