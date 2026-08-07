@@ -4,7 +4,7 @@
 
 本页是第一天的推荐材料入口。正式执行时，可以根据当天的基础和面试结果指定最小观看范围；没有必要要求每个人完整看完所有频道。
 
-技术材料的默认顺序是“一门官方主线 + 一项中文补充 + 一个迁移题”。完全零基础学生只从 [Helsinki Python MOOC 2026](https://programming-26.mooc.fi/) 和 [CS50P](https://cs50.harvard.edu/python/) 中选一条，不把行业访谈或 AI 课程当作 Python 入门替代品。完整来源、先修条件和各等级映射见 [catalog.json](catalog.json)。
+技术材料的默认顺序是“一门官方主线 + 一项中文补充 + 一个迁移题”。完全零基础学生只从 [Helsinki Python MOOC 2026](https://programming-26.mooc.fi/) 和 [CS50P](https://cs50.harvard.edu/python/) 中选一条，不把行业访谈或 AI 课程当作 Python 入门替代品。面向学生的完整推荐见[官方课程与文档主线](official-courses.md)，机器可读的来源索引见 [catalog.json](catalog.json)。
 
 ## A. 技术基础与数学直觉
 
@@ -67,7 +67,7 @@
 4. 记录“原始来源”和“实际观看入口”两个链接；
 5. 只有完成上述核验后，才可进入后续版本的必修清单。
 
-本版已把 Python、GitHub、Jupyter、scikit-learn、PyTorch、Gymnasium 和 Hugging Face 的官方入口写入 `catalog.json`。具体 Bilibili 视频仍需在每期开班前核验，不能把站内搬运视频直接标为官方课程。
+本版已把 Python、GitHub、Jupyter、scikit-learn、PyTorch、Gymnasium 和 Hugging Face 的官方入口整理到[学生推荐页](official-courses.md)，并同步写入 `catalog.json`。具体 Bilibili 视频仍需在每期开班前核验，不能把站内搬运视频直接标为官方课程。
 
 ## 第一日开放题
 
