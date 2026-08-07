@@ -46,9 +46,12 @@ def execute(notebook_path: Path, project_root: Path) -> Path:
 
 def main() -> int:
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    entries = list(manifest["projects"])
+    if isinstance(manifest.get("foundation"), dict):
+        entries.append(manifest["foundation"])
     notebooks = [
-        (ROOT / project["notebook"], ROOT / project["starter"])
-        for project in manifest["projects"]
+        (ROOT / entry["notebook"], ROOT / entry["starter"])
+        for entry in entries
     ]
     if not notebooks:
         print("No notebooks found", file=sys.stderr)

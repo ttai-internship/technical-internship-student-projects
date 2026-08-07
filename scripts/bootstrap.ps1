@@ -1,5 +1,5 @@
 param(
-  [ValidateSet("all", "B01", "B02", "B03", "M01", "M02", "M03", "A01", "A02", "A03")]
+  [ValidateSet("all", "B00", "B01", "B02", "B03", "M01", "M02", "M03", "A01", "A02", "A03")]
   [string]$Project = "all"
 )
 

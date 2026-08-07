@@ -9,7 +9,7 @@
 
 ## 背景
 
-使用 MNIST、Fashion-MNIST 或规模相近的数据集，避免学生把时间消耗在大数据下载和 GPU 配置上。
+当前 starter 使用二维合成数据，避免学生把时间消耗在大数据下载和 GPU 配置上；指导者确认闭环后才可替换为 MNIST、Fashion-MNIST 或同规模数据。
 
 ## Starter code
 
@@ -29,16 +29,17 @@ tests/test_shapes.py
 ## 学生完成的核心代码
 
 - 补全或修改一个小型网络；
-- 完成训练、验证和保存模型；
+- 让 `train(..., return_model=True)` 返回训练后的模型；
+- 使用 `evaluate(model, loader)` 报告 accuracy 和样本数，并用 `save_checkpoint(model, path)` 保存模型；
 - 进行一次参数、结构或数据增强实验；
 - 绘制训练曲线；
 - 解释训练结果。
 
 ## Core 验收
 
-1. 训练命令可以在规定时间内完成；
+1. 训练命令可以在规定时间内完成，并能通过 `return_model=True` 得到模型；
 2. 小批量数据过拟合检查通过，证明训练逻辑有效；
-3. 测试指标达到项目卡给出的合理范围；
+3. `evaluate` 能在不更新权重的情况下报告 accuracy 和样本数，`save_checkpoint` 能写出可加载文件；
 4. 至少有一组改动前后对比；
 5. 报告说明过拟合、欠拟合或不稳定现象；
 6. 模型配置、依赖和运行设备有记录。
@@ -50,6 +51,8 @@ tests/test_shapes.py
 - 配置文件；
 - 对比实验记录；
 - 失败或异常训练案例。
+
+一周 Core 不要求下载 MNIST、配置 GPU 或搭建训练平台；当前二维合成数据已经足以验证训练闭环。
 
 ## Stretch
 

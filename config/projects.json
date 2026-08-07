@@ -1,6 +1,17 @@
 {
   "schema_version": 1,
   "description": "Student-facing project contract for the technical internship platform.",
+  "foundation": {
+    "id": "B00",
+    "level": "foundation",
+    "title": "Python Foundation",
+    "task": "foundation/README.md",
+    "starter": "foundation/starter",
+    "notebook": "notebooks/student/foundation/B00-python-foundation.ipynb",
+    "readme": "foundation/starter/README.md",
+    "tests": "foundation/starter/tests",
+    "duration_core": ["one-week", "one-month"]
+  },
   "projects": [
     {
       "id": "B01",

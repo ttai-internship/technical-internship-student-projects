@@ -1,6 +1,6 @@
 # 技术实习学生项目仓
 
-这是一个公开的学生项目仓。每位实习生在自己的 Fork 中，从初级、中级、高级对应的 3 个项目中选择 1 个，完成代码、测试/实验、Notebook、Git 提交和 CI 验证。
+这是一个公开的学生项目仓。每位实习生先完成第一天诊断；完全零基础者先走 [B00 零基础起步门](foundation/README.md)，然后再从初级、中级、高级各自的 3 个项目中选择 1 个，完成代码、测试/实验、Notebook、Git 提交和 CI 验证。B00 是基础门，不改变三个等级各三选一的主项目结构。
 
 仓库只包含学生材料：starter、任务卡、学生版 Notebook、公共测试和提交模板。不要在这里提交 API Key、个人隐私数据或真实生产数据。
 
@@ -17,7 +17,7 @@ git remote rename origin upstream
 git remote add origin https://github.com/<your-account>/technical-internship-student-projects.git
 ```
 
-选择项目并创建自己的开发分支：
+选择项目并创建自己的开发分支（需要基础训练时可先选择 B00）：
 
 ```powershell
 git checkout -b feature/B01-task-cli
@@ -37,7 +37,7 @@ uv run --locked python scripts\run_notebooks.py
 
 ## 项目选择
 
-完成第一天的共同材料记录后，再从下面对应等级的 3 个项目中选择 1 个。
+完成第一天的共同材料记录和必要的 B00 微任务后，再从下面对应等级的 3 个项目中选择 1 个。
 
 | 等级 | 项目 | 适合方向 |
 |---|---|---|
@@ -75,3 +75,5 @@ git push -u origin feature/<project-id>-<slice>
 - `curriculum/`：课程、Bilibili 和行业内容入口；
 - `scripts/`：环境、项目选择、测试和 Notebook 执行；
 - `.github/workflows/`：学生仓 CI。
+- [CONTRIBUTING.md](CONTRIBUTING.md)：分支、commit、push 和 PR 规范；
+- [SECURITY.md](SECURITY.md)：凭据、隐私和教学数据边界。

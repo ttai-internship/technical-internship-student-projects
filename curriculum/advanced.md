@@ -13,9 +13,9 @@
 
 | 学习目标 | 优先材料 | 对应实践 |
 |---|---|---|
-| 数学与模型直觉 | 3Blue1Brown，按研究问题补充相关数学内容 | A03 论文复现 |
-| 从原理到工程实现 | 楚国刮大风的基础原理和 coding 内容 | A01 工具调用 Agent |
-| AI 技术深度对话 | WhynotTV，选择与 Agent、模型或研究方法相关的节目 | A01 / A02 |
+| 工具调用、RAG 和 Agent 边界 | [Hugging Face Agents Course](https://huggingface.co/learn/agents-course/unit0/introduction)；WhynotTV 作为技术对话补充 | A01 / A02 |
+| Transformer 和模型实验背景 | [Hugging Face LLM Course](https://huggingface.co/learn/llm-course/chapter1/1)；3Blue1Brown 按论文补数学直觉 | A03 |
+| 原理到工程实现 | 楚国刮大风的基础原理和 coding 内容 | A01 |
 | 论文、演讲与研究表达 | 京口先生，选择一项可以追溯原始来源的材料 | A02 / A03 |
 | 科技公司和技术路线判断 | 张小珺商业访谈录或硅谷 101 | A01 / A02 |
 
@@ -27,4 +27,5 @@
 
 - WhynotTV、京口先生和官方中译技术演讲当前均为推荐材料，不自动成为 A01/A02/A03 的硬性先修课；
 - 论文复现必须记录原始论文、代码/数据来源和版本；
+- 官方课程建立先修和术语基线，行业访谈不替代论文、文档、实验或评估证据；
 - 具体论文、模型和视频后续锁定。

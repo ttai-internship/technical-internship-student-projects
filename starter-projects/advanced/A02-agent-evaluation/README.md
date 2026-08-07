@@ -15,5 +15,5 @@ python -m unittest discover -s tests -v
 - 增加一个指标；
 - 固定问题集和 baseline；
 - 记录改动前后结果；
-- 至少分类三种失败原因；
+- 至少分类三种失败原因，并为每条结果增加 `failure_type`；
 - 写出不能由当前实验支持的结论。

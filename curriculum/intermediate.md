@@ -13,10 +13,9 @@
 
 | 学习目标 | 优先材料 | 对应实践 |
 |---|---|---|
-| 数学直觉和公式理解 | 3Blue1Brown 相关数学系列 | M01 表格数据机器学习实验 |
-| 从公式到实现 | 楚国刮大风的数学推导、计算机原理和 coding 内容 | M01 / M02 |
-| 研究进展与论文表达 | 京口先生的 AI 论文、演讲和中文整理内容 | M02 / M03 |
-| 技术产业语境 | 硅谷 101，选择与所做方向相关的主题 | M01 / M02 / M03 |
+| 数据划分、评估和 Pipeline | [scikit-learn Getting Started](https://scikit-learn.org/stable/getting_started.html)；3Blue1Brown 作为数学直觉补充 | M01 表格数据机器学习实验 |
+| Tensor、训练和保存 | [PyTorch Learn the Basics](https://docs.pytorch.org/tutorials/beginner/basics/intro.html)；楚国刮大风作为中文推导补充 | M02 小型深度学习模型 |
+| 环境、状态、动作和奖励 | [Gymnasium Basic Usage](https://gymnasium.farama.org/introduction/basic_usage/)；京口先生作为论文表达补充 | M03 强化学习控制实验 |
 
 ## 推荐的学习记录
 
@@ -27,4 +26,5 @@
 - M01 更重视数据、评估和实验纪律；
 - M02 更重视模型结构、训练过程和误差分析；
 - M03 更重视状态、动作、奖励、策略和稳定性；
+- 官方材料建立技术主线，中文课程和访谈用于降低理解门槛、补充推导和行业语境，不作为唯一事实来源；
 - 课程具体章节和数据集版本后续锁定。
