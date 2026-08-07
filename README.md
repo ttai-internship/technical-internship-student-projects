@@ -1,10 +1,18 @@
 # 技术实习学生项目仓
 
-这是一个公开的学生项目仓。每位实习生在自己的 Fork 中，从初级、中级、高级对应的 3 个项目中选择 1 个，完成代码、测试/实验、Notebook、Git 提交和 CI 验证。
+这是一个公开的学生项目仓。每位实习生先完成第一天诊断；完全零基础者先走 [B00 零基础起步门](foundation/README.md)，然后再从初级、中级、高级各自的 3 个项目中选择 1 个，完成代码、测试/实验、Notebook、Git 提交和 CI 验证。B00 是基础门，不改变三个等级各三选一的主项目结构。
 
 仓库只包含学生材料：starter、任务卡、学生版 Notebook、公共测试和提交模板。不要在这里提交 API Key、个人隐私数据或真实生产数据。
 
 > **开始项目之前，请先阅读[课程与博客推荐清单](curriculum/README.md)。**第一天共同学习材料、Bilibili 技术课程、行业访谈/博客和初级、中级、高级学习路线都在这里。学习记录需要保留观看内容、关键概念、一个迁移问题和验证证据；课程用于帮助实践，不替代项目 Core 验收。
+
+## 给实习生的开始顺序
+
+1. 先完成第一天的简历诊断、面试、环境配置和共同学习记录；课程与博客推荐只作为学习入口，不要求把所有内容看完。
+2. 如果没有编程基础，先完成 [B00 零基础起步门](foundation/README.md) 及其诊断；通过后仍然从初级的 B01/B02/B03 三选一。不要因为对 AI 感兴趣就跳过基础门。
+3. 选择一个主项目后，先阅读项目卡、学生版 Notebook 和 starter README，再创建分支、运行公共测试，最后按项目要求提交代码、Notebook 证据和复盘材料。
+
+本仓库是学生公开仓，只包含 starter、学生版 Notebook、公共测试和提交模板。导师 Notebook、隐藏 Core 测试和评分记录留在私有导师仓；请勿尝试提交凭据、隐藏测试或他人的个人数据。
 
 ## 快速开始
 
@@ -17,7 +25,7 @@ git remote rename origin upstream
 git remote add origin https://github.com/<your-account>/technical-internship-student-projects.git
 ```
 
-选择项目并创建自己的开发分支：
+选择项目并创建自己的开发分支（需要基础训练时可先选择 B00）：
 
 ```powershell
 git checkout -b feature/B01-task-cli
@@ -37,7 +45,7 @@ uv run --locked python scripts\run_notebooks.py
 
 ## 项目选择
 
-完成第一天的共同材料记录后，再从下面对应等级的 3 个项目中选择 1 个。
+完成第一天的共同材料记录和必要的 B00 微任务后，再从下面对应等级的 3 个项目中选择 1 个。
 
 | 等级 | 项目 | 适合方向 |
 |---|---|---|
@@ -75,3 +83,5 @@ git push -u origin feature/<project-id>-<slice>
 - `curriculum/`：课程、Bilibili 和行业内容入口；
 - `scripts/`：环境、项目选择、测试和 Notebook 执行；
 - `.github/workflows/`：学生仓 CI。
+- [CONTRIBUTING.md](CONTRIBUTING.md)：分支、commit、push 和 PR 规范；
+- [SECURITY.md](SECURITY.md)：凭据、隐私和教学数据边界。

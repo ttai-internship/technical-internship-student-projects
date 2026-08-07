@@ -13,9 +13,9 @@
 
 | 学习目标 | 优先材料 | 对应实践 |
 |---|---|---|
-| 计算机和编程基础 | 楚国刮大风的基础编程、计算机原理和 coding 内容 | B01 命令行任务清单 |
-| 建立数学和结构直觉 | 3Blue1Brown 的基础数学可视化内容，按兴趣选用 | B02 数据清洗与报告 |
-| 理解技术产品和问题背景 | 张小珺商业访谈录或硅谷 101，选择 1 期 | B03 Web 功能切片 |
+| 计算机和编程基础 | 官方主线：[Helsinki Python MOOC 2026](https://programming-26.mooc.fi/) 或 [CS50P](https://cs50.harvard.edu/python/)；楚国刮大风作为中文补充 | B01 命令行任务清单 |
+| 建立文件、数据和语法直觉 | [Python 官方教程](https://docs.python.org/3/tutorial/) 按需查阅；3Blue1Brown 仅作兴趣补充 | B02 数据清洗与报告 |
+| 理解请求、输入和错误边界 | [GitHub Skills](https://github.com/skills/introduction-to-github) 的协作练习；张小珺商业访谈录或硅谷 101 选 1 期 | B03 Web 功能切片 |
 
 ## 推荐的学习记录
 
@@ -24,5 +24,6 @@
 ## 级别边界
 
 - 没有完成数学或 AI 材料，不影响初级项目的 Core 验收；
+- 完全零基础先完成 [B00 基础起步门](../foundation/README.md)，再进入 B01/B02/B03；不要用高级 AI 课程替代 Python 基础。
 - 初级项目的主要证据仍然是可运行代码、测试、commit、运行日志和现场说明；
 - 课程内容具体章节后续再补入，当前不绑定固定视频编号。

@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "config" / "projects.json"
-PROJECT_IDS = ("B01", "B02", "B03", "M01", "M02", "M03", "A01", "A02", "A03")
+PROJECT_IDS = ("B00", "B01", "B02", "B03", "M01", "M02", "M03", "A01", "A02", "A03")
 DURATIONS = ("one-week", "one-month", "two-month", "half-year")
 
 
@@ -24,7 +24,11 @@ def main() -> int:
         parser.error("PROJECT_SELECTION.json already exists; edit it deliberately before selecting again")
 
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    entry = next(project for project in manifest["projects"] if project["id"] == args.project)
+    entry = (
+        manifest["foundation"]
+        if args.project == "B00"
+        else next(project for project in manifest["projects"] if project["id"] == args.project)
+    )
     selection = {
         "schema_version": 1,
         "student_id": args.student_id,

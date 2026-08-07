@@ -8,7 +8,7 @@ from .data import make_loader
 from .model import build_student_model
 
 
-def train(epochs: int = 3, learning_rate: float = 0.05) -> dict:
+def train(epochs: int = 3, learning_rate: float = 0.05, return_model: bool = False) -> dict:
     torch.manual_seed(7)
     model = build_student_model()
     optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate)
@@ -23,7 +23,10 @@ def train(epochs: int = 3, learning_rate: float = 0.05) -> dict:
             optimizer.step()
             total_loss += float(loss.item())
         history.append({"epoch": epoch + 1, "loss": total_loss})
-    return {"history": history, "final_loss": history[-1]["loss"]}
+    result = {"history": history, "final_loss": history[-1]["loss"]}
+    if return_model:
+        result["model"] = model
+    return result
 
 
 def main() -> int:

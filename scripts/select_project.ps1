@@ -1,6 +1,6 @@
 param(
   [Parameter(Mandatory = $true)]
-  [ValidateSet("B01", "B02", "B03", "M01", "M02", "M03", "A01", "A02", "A03")]
+  [ValidateSet("B00", "B01", "B02", "B03", "M01", "M02", "M03", "A01", "A02", "A03")]
   [string]$Project,
 
   [Parameter(Mandatory = $true)]
@@ -13,7 +13,11 @@ param(
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
 $manifest = Get-Content -LiteralPath (Join-Path $root "config\projects.json") -Raw -Encoding UTF8 | ConvertFrom-Json
-$entry = @($manifest.projects | Where-Object { $_.id -eq $Project })[0]
+$entry = if ($Project -eq "B00") {
+  $manifest.foundation
+} else {
+  @($manifest.projects | Where-Object { $_.id -eq $Project })[0]
+}
 
 if ($null -eq $entry) {
   throw "Unknown project: $Project"

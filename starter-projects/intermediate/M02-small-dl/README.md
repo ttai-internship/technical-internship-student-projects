@@ -16,5 +16,6 @@ python -m unittest discover -s tests -v
 - 运行 baseline；
 - 完成小批量过拟合检查；
 - 在 `model.py` 中修改一个结构或训练策略；
+- 用 `train(..., return_model=True)` 取得模型，并使用 `small_dl.evaluate.evaluate` 和 `small_dl.evaluate.save_checkpoint` 完成验证与保存；
 - 保存训练曲线和对比结果；
 - 解释一次训练失败或不稳定现象。

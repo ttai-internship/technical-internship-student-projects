@@ -13,7 +13,10 @@ MANIFEST_PATH = ROOT / "config" / "projects.json"
 
 def load_projects() -> list[dict[str, object]]:
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
-    return manifest["projects"]
+    entries = list(manifest["projects"])
+    if isinstance(manifest.get("foundation"), dict):
+        entries.append(manifest["foundation"])
+    return entries
 
 
 def main() -> int:
