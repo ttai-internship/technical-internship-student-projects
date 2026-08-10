@@ -1,0 +1,19 @@
+name: Bug report
+description: 报告学生 starter、公共测试或文档中的可复现问题
+title: "[bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 请提供项目、环境、命令和最小复现步骤，不要粘贴密钥或个人数据。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 预期与实际结果
+    validations:
+      required: true

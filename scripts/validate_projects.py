@@ -10,6 +10,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "config" / "projects.json"
 CATALOG_PATH = ROOT / "curriculum" / "catalog.json"
+PYPROJECT_PATH = ROOT / "pyproject.toml"
+PYTHON_VERSION_PATH = ROOT / ".python-version"
+CONDA_ENVIRONMENT_PATH = ROOT / "environment.yml"
 DURATION_PROFILES_PATH = ROOT / "config" / "duration_profiles.json"
 REQUIRED_FIELDS = {
     "id",
@@ -39,6 +42,18 @@ FOUNDATION_REQUIRED_FIELDS = {
 
 def validate() -> list[str]:
     errors: list[str] = []
+    if not PYPROJECT_PATH.is_file():
+        errors.append("missing pyproject.toml")
+    else:
+        pyproject_text = PYPROJECT_PATH.read_text(encoding="utf-8")
+        if 'requires-python = ">=3.12,<3.13"' not in pyproject_text:
+            errors.append("pyproject.toml must require Python >=3.12,<3.13")
+    if not PYTHON_VERSION_PATH.is_file() or PYTHON_VERSION_PATH.read_text(encoding="utf-8").strip() != "3.12":
+        errors.append(".python-version must pin 3.12")
+    if not CONDA_ENVIRONMENT_PATH.is_file():
+        errors.append("missing environment.yml for the Conda path")
+    elif "python=3.12" not in CONDA_ENVIRONMENT_PATH.read_text(encoding="utf-8"):
+        errors.append("environment.yml must declare python=3.12")
     if not MANIFEST_PATH.is_file():
         return [f"missing manifest: {MANIFEST_PATH.relative_to(ROOT)}"]
 

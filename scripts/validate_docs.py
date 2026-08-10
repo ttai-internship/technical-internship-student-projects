@@ -41,16 +41,21 @@ def local_link_errors() -> list[str]:
 
 def notebook_errors() -> list[str]:
     errors: list[str] = []
-    for path in (ROOT / "notebooks" / "student").rglob("*.ipynb"):
-        try:
-            notebook = nbformat.read(path, as_version=4)
-        except Exception as error:  # noqa: BLE001
-            errors.append(f"{path.relative_to(ROOT)}: invalid notebook: {error}")
-            continue
-        for index, cell in enumerate(notebook.cells, start=1):
-            cell_id = cell.get("id")
-            if not isinstance(cell_id, str) or not CELL_ID_PATTERN.fullmatch(cell_id):
-                errors.append(f"{path.relative_to(ROOT)}: cell {index} has invalid id {cell_id!r}")
+    notebook_roots = [ROOT / "notebooks" / "student"]
+    mentor_root = ROOT / "notebooks" / "mentor"
+    if mentor_root.is_dir():
+        notebook_roots.append(mentor_root)
+    for notebook_root in notebook_roots:
+        for path in notebook_root.rglob("*.ipynb"):
+            try:
+                notebook = nbformat.read(path, as_version=4)
+            except Exception as error:  # noqa: BLE001
+                errors.append(f"{path.relative_to(ROOT)}: invalid notebook: {error}")
+                continue
+            for index, cell in enumerate(notebook.cells, start=1):
+                cell_id = cell.get("id")
+                if not isinstance(cell_id, str) or not CELL_ID_PATTERN.fullmatch(cell_id):
+                    errors.append(f"{path.relative_to(ROOT)}: cell {index} has invalid id {cell_id!r}")
     return errors
 
 
@@ -60,7 +65,7 @@ def main() -> int:
         for error in errors:
             print(f"ERROR {error}", file=sys.stderr)
         return 1
-    print("Documentation links and student Notebook IDs are valid.")
+    print("Documentation links and teaching Notebook IDs are valid.")
     return 0
 
 
