@@ -1,6 +1,6 @@
 # B01 Starter：命令行任务清单
 
-如果你还不能独立运行和修改一个 Python 文件，请先完成仓库根目录的 [B00 基础起步门](../../../../foundation/README.md)。B01 的第一步不是读完整个项目，而是只打开 `service.py`，完成一个 `complete` 用例。
+如果你还不能独立运行和修改一个 Python 文件，请先完成仓库根目录的 [B00 基础起步门](../../../foundation/README.md)。B01 的第一步不是读完整个项目，而是只打开 `service.py`，完成一个 `complete` 用例。
 
 ## 运行
 

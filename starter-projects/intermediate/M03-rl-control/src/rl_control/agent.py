@@ -1,7 +1,7 @@
 import random
 from collections.abc import Callable
 
-from .env import Action, GridWorld, RIGHT
+from .env import RIGHT, Action, GridWorld
 
 
 class RandomAgent:

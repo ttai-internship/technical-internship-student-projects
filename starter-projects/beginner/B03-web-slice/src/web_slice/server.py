@@ -5,7 +5,7 @@ from .app import encode_tickets
 
 
 class Handler(BaseHTTPRequestHandler):
-    def do_GET(self) -> None:  # noqa: N802 - stdlib handler name
+    def do_GET(self) -> None:
         parsed = urlparse(self.path)
         if parsed.path != "/api/tickets":
             self.send_error(404, "not found")

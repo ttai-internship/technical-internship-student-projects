@@ -6,7 +6,6 @@ from .data import load_dataset
 from .evaluate import evaluate
 from .model import MajorityClassifier, build_student_model
 
-
 ROOT = Path(__file__).resolve().parents[2]
 
 

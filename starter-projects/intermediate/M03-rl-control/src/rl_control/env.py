@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 
-
 Action = int
 UP, DOWN, LEFT, RIGHT = range(4)
 

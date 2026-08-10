@@ -28,8 +28,11 @@ jobs:
       - name: Validate student project contract
         run: uv run --locked python scripts/validate_projects.py
 
+      - name: Validate documentation links and notebook IDs
+        run: uv run --locked python scripts/validate_docs.py
+
       - name: Lint repository scripts
-        run: uv run --locked ruff check scripts
+        run: uv run --locked ruff check scripts starter-projects
 
       - name: Run public tests
         run: uv run --locked python scripts/run_public_tests.py

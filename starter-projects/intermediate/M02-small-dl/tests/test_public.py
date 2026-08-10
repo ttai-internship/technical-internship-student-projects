@@ -1,7 +1,6 @@
 import unittest
 
 import torch
-
 from small_dl.data import make_dataset
 from small_dl.model import TinyMLP
 

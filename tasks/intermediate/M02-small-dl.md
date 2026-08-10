@@ -2,68 +2,36 @@
 
 ## 定位
 
-- 等级：中级
-- 推荐周期：一周或一月；两月可做专项改进
-- 适合：已有机器学习基础并能使用 PyTorch 或类似框架的学生
-- 主线：训练闭环 + 过拟合检查 + 参数实验 + 结果解释
+- 等级：中级；一周可完成 Core，一月起适合完整实验。
+- 主线：数据、模型、训练、评估、checkpoint 和过拟合诊断。
+- Core 使用合成二维数据，CPU 可完成；MNIST、GPU 和大型数据集只能作为 Stretch。
 
-## 背景
-
-当前 starter 使用二维合成数据，避免学生把时间消耗在大数据下载和 GPU 配置上；指导者确认闭环后才可替换为 MNIST、Fashion-MNIST 或同规模数据。
-
-## Starter code
+## Starter 结构
 
 ```text
-src/
-├── dataset.py
-├── model.py
-├── train.py
-├── evaluate.py
-└── utils.py
-configs/base.yaml
-tests/test_shapes.py
+src/small_dl/data.py
+src/small_dl/model.py
+src/small_dl/train.py
+src/small_dl/evaluate.py
+tests/test_public.py
+requirements.txt
 ```
 
-项目提供数据下载说明、训练入口、baseline 和最小运行配置。
+## Core
 
-## 学生完成的核心代码
+- 运行并记录 baseline；
+- 完成小批量过拟合检查；
+- 在 `model.py` 中修改一个结构或训练策略；
+- 让 `train(..., return_model=True)` 返回模型；
+- 使用 `evaluate` 和 `save_checkpoint` 验证、保存和重新加载结果；
+- 记录训练曲线、对比结果和一次失败或不稳定现象。
 
-- 补全或修改一个小型网络；
-- 让 `train(..., return_model=True)` 返回训练后的模型；
-- 使用 `evaluate(model, loader)` 报告 accuracy 和样本数，并用 `save_checkpoint(model, path)` 保存模型；
-- 进行一次参数、结构或数据增强实验；
-- 绘制训练曲线；
-- 解释训练结果。
+## 验收
 
-## Core 验收
-
-1. 训练命令可以在规定时间内完成，并能通过 `return_model=True` 得到模型；
-2. 小批量数据过拟合检查通过，证明训练逻辑有效；
-3. `evaluate` 能在不更新权重的情况下报告 accuracy 和样本数，`save_checkpoint` 能写出可加载文件；
+1. 固定种子后结果可重复；
+2. 训练与评估模式边界清楚，评估不更新权重；
+3. checkpoint 可写出且可解释；
 4. 至少有一组改动前后对比；
-5. 报告说明过拟合、欠拟合或不稳定现象；
-6. 模型配置、依赖和运行设备有记录。
+5. 报告解释过拟合、欠拟合或随机性，而不是只展示最高准确率。
 
-## 必交材料
-
-- 模型和训练代码；
-- 指标及曲线；
-- 配置文件；
-- 对比实验记录；
-- 失败或异常训练案例。
-
-一周 Core 不要求下载 MNIST、配置 GPU 或搭建训练平台；当前二维合成数据已经足以验证训练闭环。
-
-## Stretch
-
-- 增加数据增强；
-- 比较不同优化器；
-- 增加早停或学习率策略；
-- 对错误样本进行可视化分析。
-
-## 周期扩展
-
-- 一周：完成给定模型和一次小实验；
-- 一月：比较两种结构或训练策略；
-- 两月：做专项改进并形成完整实验报告；
-- 半年：形成可复现实验或论文复现项目。
+一月比较两个结构或训练策略；两月增加专项改进；半年形成完整可复现实验。

@@ -1,0 +1,14 @@
+[
+  {"id": "q01", "prompt": "What is the capital of France?", "expected": "Paris", "answer": "Paris is the capital of France.", "failure_type": "other"},
+  {"id": "q02", "prompt": "What is 2 + 2?", "expected": "4", "answer": "The answer is 4.", "failure_type": "other"},
+  {"id": "q03", "prompt": "Which document describes the refund policy?", "expected": "refund", "answer": "I found a shipping policy.", "failure_type": "retrieval"},
+  {"id": "q04", "prompt": "Summarize the timeout rule.", "expected": "30 seconds", "answer": "The timeout is 30 seconds.", "failure_type": "other"},
+  {"id": "q05", "prompt": "Return the account status as JSON.", "expected": "active", "answer": "The account is currently active.", "failure_type": "generation"},
+  {"id": "q06", "prompt": "What should happen when no record is found?", "expected": "unknown", "answer": "I do not know.", "failure_type": "understanding"},
+  {"id": "q07", "prompt": "Name the required approval step.", "expected": "manager", "answer": "Manager approval is required.", "failure_type": "other"},
+  {"id": "q08", "prompt": "Which source supports the answer?", "expected": "handbook", "answer": "The handbook supports this answer.", "failure_type": "other"},
+  {"id": "q09", "prompt": "What is the maximum retry count?", "expected": "3", "answer": "The maximum retry count is two.", "failure_type": "retrieval"},
+  {"id": "q10", "prompt": "Give the final label only.", "expected": "approved", "answer": "approved", "failure_type": "other"},
+  {"id": "q11", "prompt": "What is the escalation condition?", "expected": "priority", "answer": "Escalate priority cases.", "failure_type": "other"},
+  {"id": "q12", "prompt": "State the output schema.", "expected": "items", "answer": "The response contains records.", "failure_type": "generation"}
+]

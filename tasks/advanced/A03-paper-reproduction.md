@@ -1,70 +1,40 @@
-# A03：论文复现与算法改进
+# A03：论文阅读、受控复现与算法改进
 
 ## 定位
 
-- 等级：高级
-- 推荐周期：一月起步；两月或半年更合适
-- 适合：能阅读论文、运行实验并记录假设的学生
-- 主线：阅读论文 + 复现 baseline + 控制变量 + 消融分析
+- 等级：高级；一月起步，两月或半年更适合完整研究。
+- 30 篇论文先提供阅读卡；每期只发放已锁定的3个可运行论文包。
+- GPT-3、原始 Transformer 大规模结果等只能做分析或缩小机制复现，不能冒充完整复现。
 
-## 背景
+## Assignment readiness
 
-项目指定一篇有公开代码或足够实验细节的论文，学生不直接声称“创新”，而是先确认能否复现，再做一个范围受控的变化。
+A03 只有在 `references/paper-pack.json` 标记 `ready_for_assignment: true` 后才能正式发放。论文包必须锁定原文、代码/数据许可、CPU 可运行范围、baseline、指标、随机种子和预期结果。
 
-## Starter code
+## Starter 结构
 
 ```text
-baseline/
-├── train.py
-├── evaluate.py
-├── config.yaml
-└── README.md
-experiments/
-├── reproduce.py
-├── ablation.py
-└── results/
-references/
-└── paper-notes.md
+baseline/{train.py,evaluate.py,config.yaml}
+experiments/{reproduce.py,ablation.py,results/}
+references/{paper-pack.json,paper-notes.md}
+src/paper_reproduction/{experiment.py,run.py}
+tests/test_public.py
 ```
 
-项目提供论文、代码来源、环境文件、数据说明和预期 baseline 范围。
+## Core
 
-## 学生完成的核心代码
-
-- 完成论文方法摘要和复现计划；
+- 填写论文问题、方法、假设和复现边界；
 - 运行 baseline；
 - 只改变一个主要变量；
-- 保存实验配置和结果；
-- 解释结果差异和复现限制。
+- 保存配置、结果和失败记录；
+- 将复现结果、改动结果和个人推断分开；
+- 说明哪些结论没有被当前实验支持。
 
-## Core 验收
+## 验收
 
 1. 环境、数据、版本和运行命令完整；
-2. baseline 结果处于项目卡规定的合理范围；
-3. 复现实验与改动实验分开记录；
-4. 一次实验至少有一个明确假设；
-5. 有结果表或图，并且结论不超过证据；
-6. 能说明哪些部分没有复现以及可能原因。
+2. baseline 与改动实验可分别复现；
+3. 结果表或图包含不确定性和资源限制；
+4. 报告区分事实、观察和推断；
+5. 答辩能解释指标、随机性和复现失败原因。
 
-## 必交材料
-
-- 论文阅读笔记；
-- 复现代码；
-- 实验配置；
-- baseline 与改动结果；
-- 复现报告；
-- 失败或不确定结果记录。
-
-## Stretch
-
-- 增加第二个消融实验；
-- 比较另一个公开 baseline；
-- 提交上游项目 issue 或 PR；
-- 对实验结果进行统计稳定性分析。
-
-## 周期扩展
-
-- 一周：复现局部方法或一组核心结果；
-- 一月：完成 baseline 加一次受控改动；
-- 两月：完成复现、消融和中期答辩；
-- 半年：形成完整研究问题、技术报告或论文初稿。
+一周做局部机制复现；一月完成 baseline 加一次受控改动；两月增加消融和稳定性；半年形成研究报告或可交接原型。

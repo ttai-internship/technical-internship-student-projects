@@ -2,7 +2,7 @@ import argparse
 import json
 
 import torch
-import torch.nn as nn
+from torch import nn
 
 from .data import make_loader
 from .model import build_student_model

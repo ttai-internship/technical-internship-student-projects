@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "config" / "projects.json"
 CATALOG_PATH = ROOT / "curriculum" / "catalog.json"
+DURATION_PROFILES_PATH = ROOT / "config" / "duration_profiles.json"
 REQUIRED_FIELDS = {
     "id",
     "level",
@@ -60,6 +61,19 @@ def validate() -> list[str]:
                 errors.append("curriculum catalog official_backbone must be a non-empty list")
             if not isinstance(catalog.get("mentor_review"), list):
                 errors.append("curriculum catalog mentor_review must be a list")
+
+    if not DURATION_PROFILES_PATH.is_file():
+        errors.append(f"missing duration profiles: {DURATION_PROFILES_PATH.relative_to(ROOT)}")
+    else:
+        try:
+            duration_profiles = json.loads(DURATION_PROFILES_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as error:
+            errors.append(f"invalid JSON in duration profiles: {error}")
+        else:
+            expected_durations = {"one-week", "one-month", "two-month", "half-year"}
+            profiles = duration_profiles.get("profiles")
+            if set(profiles or {}) != expected_durations:
+                errors.append(f"duration profiles must be {sorted(expected_durations)}")
 
     projects = manifest.get("projects")
     if not isinstance(projects, list):
@@ -126,6 +140,10 @@ def validate() -> list[str]:
         starter = foundation.get("starter")
         if isinstance(starter, str) and not (ROOT / starter / "src").is_dir():
             errors.append(f"B00: starter must contain src/: {starter}")
+
+    a03_pack = ROOT / "starter-projects" / "advanced" / "A03-paper-reproduction" / "references" / "paper-pack.json"
+    if not a03_pack.is_file():
+        errors.append("A03: missing references/paper-pack.json readiness gate")
 
     return errors
 

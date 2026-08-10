@@ -15,7 +15,7 @@ class JsonStorage:
             return []
         raw = json.loads(self.path.read_text(encoding="utf-8"))
         if not isinstance(raw, list):
-            raise ValueError("task data must be a JSON list")
+            raise ValueError("task data must be a JSON list")  # noqa: TRY004
         return [Task.from_dict(item) for item in raw]
 
     def save(self, tasks: list[Task]) -> None:
