@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "selection_rule": "Choose one locked pack per assignment; all packs are CPU runnable and intentionally smaller than the original paper result.",
+  "packs": [
+    {
+      "id": "resnet-micro",
+      "title": "Residual learning mechanism micro-reproduction",
+      "paper": "Deep Residual Learning for Image Recognition",
+      "source": "https://arxiv.org/abs/1512.03385",
+      "reproduction_tier": "mechanism-micro",
+      "compute": "CPU",
+      "code_license": "MIT (this repository)",
+      "data_license": "Not applicable: deterministic synthetic vectors",
+      "random_seed": 7,
+      "primary_metric": "output shape and residual delta L2",
+      "ready_for_assignment": true,
+      "entrypoint": "run.py"
+    },
+    {
+      "id": "transformer-micro",
+      "title": "Scaled dot-product attention micro-reproduction",
+      "paper": "Attention Is All You Need",
+      "source": "https://arxiv.org/abs/1706.03762",
+      "reproduction_tier": "mechanism-micro",
+      "compute": "CPU",
+      "code_license": "MIT (this repository)",
+      "data_license": "Not applicable: fixed toy arrays",
+      "random_seed": null,
+      "primary_metric": "attention row sums and output shape",
+      "ready_for_assignment": true,
+      "entrypoint": "run.py"
+    },
+    {
+      "id": "react-eval",
+      "title": "ReAct fixed-trace evaluation micro-reproduction",
+      "paper": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "source": "https://arxiv.org/abs/2210.03629",
+      "reproduction_tier": "evaluation-micro",
+      "compute": "CPU",
+      "code_license": "MIT (this repository)",
+      "data_license": "Not applicable: fixed local traces",
+      "random_seed": null,
+      "primary_metric": "fixed-trace pass rate and failure type",
+      "ready_for_assignment": true,
+      "entrypoint": "run.py"
+    }
+  ]
+}

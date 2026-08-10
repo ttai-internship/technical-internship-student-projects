@@ -43,6 +43,12 @@ uv run --locked python scripts\run_public_tests.py --project B01
 uv run --locked python scripts\run_notebooks.py
 ```
 
+A03 只有在选择一个已锁定的 CPU 论文包后才可记录：
+
+```powershell
+.\scripts\select_project.ps1 -Project A03 -PaperPack transformer-micro -Duration one-month
+```
+
 ## 项目选择
 
 完成第一天的共同材料记录和必要的 B00 微任务后，再从下面对应等级的 3 个项目中选择 1 个。
@@ -73,6 +79,10 @@ git push -u origin feature/<project-id>-<slice>
 ```
 
 每次提交后检查 GitHub Actions。提交说明、日报和报告模板位于 `templates/`；统一评价口径见 [assessment](docs/assessment.md)。
+
+## 论文阅读入口
+
+高级学生和导师可先看[30 篇论文阅读目录](curriculum/paper-catalog.md)；短周期实践只使用已经锁定的 CPU 微型 pack。
 
 ## 常用目录
 

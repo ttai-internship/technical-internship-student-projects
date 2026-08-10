@@ -41,5 +41,8 @@ jobs:
       - name: Run public tests
         run: uv run --locked python scripts/run_public_tests.py
 
+      - name: Run A03 paper micro-packs
+        run: uv run --locked python scripts/run_paper_packs.py
+
       - name: Execute student notebooks
         run: uv run --locked python scripts/run_notebooks.py
