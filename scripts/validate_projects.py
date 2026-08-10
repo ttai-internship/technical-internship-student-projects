@@ -170,6 +170,11 @@ def validate() -> list[str]:
             errors.append(f"B00: starter must contain src/: {starter}")
 
     a03_pack = ROOT / "starter-projects" / "advanced" / "A03-paper-reproduction" / "references" / "paper-pack.json"
+    a03_baseline_config = ROOT / "starter-projects" / "advanced" / "A03-paper-reproduction" / "baseline" / "config.yaml"
+    if not a03_baseline_config.is_file():
+        errors.append("A03: missing baseline/config.yaml")
+    elif "placeholder-until-paper-pack-is-locked" in a03_baseline_config.read_text(encoding="utf-8"):
+        errors.append("A03: baseline/config.yaml contains stale paper-pack placeholder status")
     if not a03_pack.is_file():
         errors.append("A03: missing references/paper-pack.json readiness gate")
     if not PAPER_PACK_CATALOG_PATH.is_file():
