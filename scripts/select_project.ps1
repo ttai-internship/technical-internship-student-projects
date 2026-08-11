@@ -7,7 +7,9 @@ param(
   [string]$AssignmentId = "local-self-study",
 
   [ValidateSet("one-week", "one-month", "two-month", "half-year")]
-  [string]$Duration = "one-week"
+  [string]$Duration = "one-week",
+
+  [string]$PaperPack
 )
 
 $ErrorActionPreference = "Stop"
@@ -18,6 +20,9 @@ $arguments = @(
   "--assignment-id", $AssignmentId,
   "--duration", $Duration
 )
+if ($PaperPack) {
+  $arguments += @("--paper-pack", $PaperPack)
+}
 & uv run --locked python @arguments
 if ($LASTEXITCODE -ne 0) {
   throw "Project selection failed with exit code $LASTEXITCODE."
