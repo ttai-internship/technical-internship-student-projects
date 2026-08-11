@@ -19,7 +19,7 @@
 先 Fork 本仓库，再克隆自己的 Fork：
 
 ```powershell
-git clone https://github.com/Densityyang/technical-internship-student-projects.git
+git clone https://github.com/ttai-internship/technical-internship-student-projects.git
 cd technical-internship-student-projects
 git remote rename origin upstream
 git remote add origin https://github.com/<your-account>/technical-internship-student-projects.git
