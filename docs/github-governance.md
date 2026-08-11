@@ -56,3 +56,10 @@ GitHub Classroom 已进入迁移期，不作为新项目的默认依赖。当前
 - 建立 30 天删除台账，不把真实身份映射或删除记录提交到 Git。
 
 具体留存规则见[数据留存与删除政策](data-retention.md)。
+
+## 外部依据
+
+- [GitHub Classroom 迁移公告](https://github.blog/changelog/2026-05-26-github-classroom-sign-ups-are-no-longer-available/)
+- [创建 GitHub 组织](https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
+- [保护重要分支](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)
+- [配置仓库 GitHub Actions 权限](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
