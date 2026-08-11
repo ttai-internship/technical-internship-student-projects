@@ -6,7 +6,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $root = Split-Path -Parent $PSScriptRoot
-$uvArguments = @("sync", "--locked", "--python", "3.10")
+$uvArguments = @("sync", "--locked", "--python", "3.12")
 
 if ($Project -eq "all") {
   $uvArguments += "--all-groups"

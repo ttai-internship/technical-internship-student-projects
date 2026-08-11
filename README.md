@@ -29,9 +29,9 @@ git remote add origin https://github.com/<your-account>/technical-internship-stu
 
 ```powershell
 git checkout -b feature/B01-task-cli
-.\scripts\select_project.ps1 -Project B01 -StudentId S001 -Duration one-week
+.\scripts\select_project.ps1 -Project B01 -AssignmentId learner-001 -Duration one-week
 # macOS/Linux 或不使用 PowerShell 时：
-uv run --locked python scripts/select_project.py --project B01 --student-id S001 --duration one-week
+uv run --locked python scripts/select_project.py --project B01 --assignment-id learner-001 --duration one-week
 ```
 
 配置环境。Windows 推荐使用 `uv`；也可以按项目 README 使用 Conda：
@@ -82,6 +82,10 @@ git push -u origin feature/<project-id>-<slice>
 - `tasks/`：项目目标、Core、Stretch 和周期要求；
 - `curriculum/`：课程、Bilibili 和行业内容入口；
 - `scripts/`：环境、项目选择、测试和 Notebook 执行；
-- `.github/workflows/`：学生仓 CI。
+- `.github/workflows/`：学生仓 CI；Action 已固定到完整 commit SHA。
 - [CONTRIBUTING.md](CONTRIBUTING.md)：分支、commit、push 和 PR 规范；
 - [SECURITY.md](SECURITY.md)：凭据、隐私和教学数据边界。
+- [环境说明](docs/environment.md)：uv 和 Conda 两条等价入口；
+- [AI 与数据使用政策](docs/ai-and-data-policy.md)：允许范围、披露和现场说明要求；
+- [许可证说明](docs/licensing.md)：代码 MIT、文档 CC BY 4.0；
+- [GitHub 治理待办](docs/github-governance.md)：组织、Classroom 和分支保护的外部配置。
