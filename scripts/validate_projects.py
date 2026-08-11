@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -14,6 +15,8 @@ PYPROJECT_PATH = ROOT / "pyproject.toml"
 PYTHON_VERSION_PATH = ROOT / ".python-version"
 CONDA_ENVIRONMENT_PATH = ROOT / "environment.yml"
 DURATION_PROFILES_PATH = ROOT / "config" / "duration_profiles.json"
+PAPER_PACK_CATALOG_PATH = ROOT / "starter-projects" / "advanced" / "A03-paper-reproduction" / "paper-packs" / "catalog.json"
+PAPER_READING_CATALOG_PATH = ROOT / "curriculum" / "paper-catalog.md"
 REQUIRED_FIELDS = {
     "id",
     "level",
@@ -54,6 +57,16 @@ def validate() -> list[str]:
         errors.append("missing environment.yml for the Conda path")
     elif "python=3.12" not in CONDA_ENVIRONMENT_PATH.read_text(encoding="utf-8"):
         errors.append("environment.yml must declare python=3.12")
+    if not PAPER_READING_CATALOG_PATH.is_file():
+        errors.append("missing 30-paper reading catalog")
+    else:
+        paper_rows = sum(
+            1
+            for line in PAPER_READING_CATALOG_PATH.read_text(encoding="utf-8").splitlines()
+            if re.match(r"^\|\s*\d+\s*\|", line)
+        )
+        if paper_rows != 30:
+            errors.append(f"paper reading catalog must contain 30 numbered rows, got {paper_rows}")
     if not MANIFEST_PATH.is_file():
         return [f"missing manifest: {MANIFEST_PATH.relative_to(ROOT)}"]
 
@@ -157,8 +170,49 @@ def validate() -> list[str]:
             errors.append(f"B00: starter must contain src/: {starter}")
 
     a03_pack = ROOT / "starter-projects" / "advanced" / "A03-paper-reproduction" / "references" / "paper-pack.json"
+    a03_baseline_config = ROOT / "starter-projects" / "advanced" / "A03-paper-reproduction" / "baseline" / "config.yaml"
+    if not a03_baseline_config.is_file():
+        errors.append("A03: missing baseline/config.yaml")
+    elif "placeholder-until-paper-pack-is-locked" in a03_baseline_config.read_text(encoding="utf-8"):
+        errors.append("A03: baseline/config.yaml contains stale paper-pack placeholder status")
     if not a03_pack.is_file():
         errors.append("A03: missing references/paper-pack.json readiness gate")
+    if not PAPER_PACK_CATALOG_PATH.is_file():
+        errors.append("A03: missing paper-packs/catalog.json")
+    else:
+        try:
+            paper_catalog = json.loads(PAPER_PACK_CATALOG_PATH.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as error:
+            errors.append(f"A03: invalid paper pack catalog: {error}")
+        else:
+            packs = paper_catalog.get("packs")
+            expected_packs = {"resnet-micro", "transformer-micro", "react-eval"}
+            actual_packs = {pack.get("id") for pack in packs} if isinstance(packs, list) else set()
+            if actual_packs != expected_packs:
+                errors.append(f"A03: paper packs must be {sorted(expected_packs)}")
+            for pack in packs if isinstance(packs, list) else []:
+                pack_id = pack.get("id", "<unknown>")
+                if pack.get("compute") != "CPU":
+                    errors.append(f"A03 {pack_id}: compute must be CPU")
+                if pack.get("ready_for_assignment") is not True:
+                    errors.append(f"A03 {pack_id}: pack must be ready_for_assignment=true")
+                for field in ("source", "code_license", "data_license", "primary_metric", "entrypoint"):
+                    if not pack.get(field):
+                        errors.append(f"A03 {pack_id}: missing {field}")
+                pack_root = PAPER_PACK_CATALOG_PATH.parent / str(pack_id)
+                for required in ("run.py", "test_pack.py", "README.md"):
+                    if not (pack_root / required).is_file():
+                        errors.append(f"A03 {pack_id}: missing {required}")
+            if a03_pack.is_file():
+                try:
+                    reference = json.loads(a03_pack.read_text(encoding="utf-8"))
+                except json.JSONDecodeError as error:
+                    errors.append(f"A03: invalid paper-pack.json: {error}")
+                else:
+                    if reference.get("pack_id") not in actual_packs:
+                        errors.append("A03: paper-pack.json pack_id must be in the catalog")
+                    if reference.get("ready_for_assignment") is not True:
+                        errors.append("A03: paper-pack.json must be ready_for_assignment=true")
 
     return errors
 

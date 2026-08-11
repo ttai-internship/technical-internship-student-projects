@@ -15,6 +15,7 @@
 - [初级路线](beginner.md)
 - [中级路线](intermediate.md)
 - [高级路线](advanced.md)
+- [论文阅读目录（30 篇）](paper-catalog.md)
 - [课程元数据与官方来源（维护者/脚本使用）](catalog.json)
 
 ## 推荐状态

@@ -1,9 +1,17 @@
 {
-  "schema_version": 1,
-  "pack_id": "placeholder",
-  "ready_for_assignment": false,
-  "reason": "A03 requires a mentor-locked paper, code/data license, CPU scope and expected result before assignment.",
-  "paper": null,
-  "reproduction_tier": null,
-  "compute": "CPU"
+  "schema_version": 2,
+  "pack_id": "transformer-micro",
+  "ready_for_assignment": true,
+  "catalog": "../paper-packs/catalog.json",
+  "paper": {
+    "title": "Attention Is All You Need",
+    "source": "https://arxiv.org/abs/1706.03762"
+  },
+  "reproduction_tier": "mechanism-micro",
+  "compute": "CPU",
+  "code_license": "MIT (this repository)",
+  "data_license": "Not applicable: fixed toy arrays",
+  "random_seed": null,
+  "primary_metric": "attention row sums and output shape",
+  "scope": "Reproduce scaled dot-product attention on a deterministic toy input; do not claim full machine-translation reproduction."
 }
