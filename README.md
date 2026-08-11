@@ -19,7 +19,7 @@
 先 Fork 本仓库，再克隆自己的 Fork：
 
 ```powershell
-git clone https://github.com/Densityyang/technical-internship-student-projects.git
+git clone https://github.com/ttai-internship/technical-internship-student-projects.git
 cd technical-internship-student-projects
 git remote rename origin upstream
 git remote add origin https://github.com/<your-account>/technical-internship-student-projects.git
@@ -98,4 +98,5 @@ git push -u origin feature/<project-id>-<slice>
 - [环境说明](docs/environment.md)：uv 和 Conda 两条等价入口；
 - [AI 与数据使用政策](docs/ai-and-data-policy.md)：允许范围、披露和现场说明要求；
 - [许可证说明](docs/licensing.md)：代码 MIT、文档 CC BY 4.0；
-- [GitHub 治理待办](docs/github-governance.md)：组织、Classroom 和分支保护的外部配置。
+- [GitHub 治理规则](docs/github-governance.md)：`ttai-internship`、一人一私有仓、权限、审核、留存和 Actions 安全。
+- [数据留存与删除政策](docs/data-retention.md)：最终验收后保留 30 个自然日。
