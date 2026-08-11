@@ -19,7 +19,7 @@
 先 Fork 本仓库，再克隆自己的 Fork：
 
 ```powershell
-git clone https://github.com/Densityyang/technical-internship-student-projects.git
+git clone https://github.com/ttai-internship/technical-internship-student-projects.git
 cd technical-internship-student-projects
 git remote rename origin upstream
 git remote add origin https://github.com/<your-account>/technical-internship-student-projects.git
@@ -29,9 +29,9 @@ git remote add origin https://github.com/<your-account>/technical-internship-stu
 
 ```powershell
 git checkout -b feature/B01-task-cli
-.\scripts\select_project.ps1 -Project B01 -StudentId S001 -Duration one-week
+.\scripts\select_project.ps1 -Project B01 -AssignmentId learner-001 -Duration one-week
 # macOS/Linux 或不使用 PowerShell 时：
-uv run --locked python scripts/select_project.py --project B01 --student-id S001 --duration one-week
+uv run --locked python scripts/select_project.py --project B01 --assignment-id learner-001 --duration one-week
 ```
 
 配置环境。Windows 推荐使用 `uv`；也可以按项目 README 使用 Conda：
@@ -41,6 +41,12 @@ uv run --locked python scripts/select_project.py --project B01 --student-id S001
 uv run --locked python scripts\validate_projects.py
 uv run --locked python scripts\run_public_tests.py --project B01
 uv run --locked python scripts\run_notebooks.py
+```
+
+A03 只有在选择一个已锁定的 CPU 论文包后才可记录：
+
+```powershell
+.\scripts\select_project.ps1 -Project A03 -PaperPack transformer-micro -Duration one-month
 ```
 
 ## 项目选择
@@ -74,6 +80,10 @@ git push -u origin feature/<project-id>-<slice>
 
 每次提交后检查 GitHub Actions。提交说明、日报和报告模板位于 `templates/`；统一评价口径见 [assessment](docs/assessment.md)。
 
+## 论文阅读入口
+
+高级学生和导师可先看[30 篇论文阅读目录](curriculum/paper-catalog.md)；短周期实践只使用已经锁定的 CPU 微型 pack。
+
 ## 常用目录
 
 - `config/projects.json`：学生项目清单；
@@ -82,6 +92,11 @@ git push -u origin feature/<project-id>-<slice>
 - `tasks/`：项目目标、Core、Stretch 和周期要求；
 - `curriculum/`：课程、Bilibili 和行业内容入口；
 - `scripts/`：环境、项目选择、测试和 Notebook 执行；
-- `.github/workflows/`：学生仓 CI。
+- `.github/workflows/`：学生仓 CI；Action 已固定到完整 commit SHA。
 - [CONTRIBUTING.md](CONTRIBUTING.md)：分支、commit、push 和 PR 规范；
 - [SECURITY.md](SECURITY.md)：凭据、隐私和教学数据边界。
+- [环境说明](docs/environment.md)：uv 和 Conda 两条等价入口；
+- [AI 与数据使用政策](docs/ai-and-data-policy.md)：允许范围、披露和现场说明要求；
+- [许可证说明](docs/licensing.md)：代码 MIT、文档 CC BY 4.0；
+- [GitHub 治理规则](docs/github-governance.md)：`ttai-internship`、一人一私有仓、权限、审核、留存和 Actions 安全。
+- [数据留存与删除政策](docs/data-retention.md)：最终验收后保留 30 个自然日。

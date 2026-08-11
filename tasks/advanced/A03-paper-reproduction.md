@@ -8,7 +8,7 @@
 
 ## Assignment readiness
 
-A03 只有在 `references/paper-pack.json` 标记 `ready_for_assignment: true` 后才能正式发放。论文包必须锁定原文、代码/数据许可、CPU 可运行范围、baseline、指标、随机种子和预期结果。
+A03 只有在 `references/paper-pack.json` 标记 `ready_for_assignment: true` 且生成作业时选定一个 `PaperPack` 后才能正式发放。论文包必须锁定原文、代码/数据许可、CPU 可运行范围、baseline、指标、随机种子和预期结果。
 
 ## Starter 结构
 
@@ -23,6 +23,7 @@ tests/test_public.py
 ## Core
 
 - 填写论文问题、方法、假设和复现边界；
+- 只围绕 assignment metadata 中的一个 `paper_pack_id` 工作；
 - 运行 baseline；
 - 只改变一个主要变量；
 - 保存配置、结果和失败记录；
@@ -37,4 +38,4 @@ tests/test_public.py
 4. 报告区分事实、观察和推断；
 5. 答辩能解释指标、随机性和复现失败原因。
 
-一周做局部机制复现；一月完成 baseline 加一次受控改动；两月增加消融和稳定性；半年形成研究报告或可交接原型。
+一周做局部机制复现；一月完成 baseline 加一次受控改动；两月增加消融和稳定性；半年形成研究报告或可交接原型。首批可选 pack 为 `resnet-micro`、`transformer-micro` 和 `react-eval`，均为 CPU 微型复现。
