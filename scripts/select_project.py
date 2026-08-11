@@ -1,8 +1,9 @@
 """Record a pseudonymous self-study selection in the public repository.
 
-Formal cohort assignments use GitHub Classroom and do not require this file.
-The public command remains useful for local practice and preserves B00 as a
-foundation gate before a later B01/B02/B03 primary project.
+Formal cohort assignments are created as one private repository per
+pseudonymous assignment ID under the mentor-managed organization. This public
+command remains useful for local practice and preserves B00 as a foundation
+gate before a later B01/B02/B03 primary project.
 """
 
 from __future__ import annotations
@@ -101,7 +102,7 @@ def main() -> int:
         if paper_pack is not None:
             print(f"Selected A03 paper pack: {paper_pack['id']}")
     print(f"Foundation completed: {foundation_completed}")
-    print("Formal cohort participants should use the private GitHub Classroom assignment repository.")
+    print("Formal cohort participants should use the private assignment repository created by the mentor administrator.")
     print("Commit PROJECT_SELECTION.json only when its pseudonymous contents are safe to publish.")
     return 0
 
