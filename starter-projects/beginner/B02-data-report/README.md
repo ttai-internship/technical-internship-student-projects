@@ -1,6 +1,6 @@
 # B02 Starter：数据清洗与报告
 
-如果你还不能独立运行和修改一个 Python 文件，请先完成仓库根目录的 [B00 基础起步门](../../../../foundation/README.md)。B02 可以只从 `validator.py` 的一条规则开始，不需要先学 pandas。
+如果你还不能独立运行和修改一个 Python 文件，请先完成仓库根目录的 [B00 基础起步门](../../../foundation/README.md)。B02 可以只从 `validator.py` 的一条规则开始，不需要先学 pandas。
 
 ## 运行
 

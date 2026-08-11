@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "pack_id": "placeholder",
+  "ready_for_assignment": false,
+  "reason": "A03 requires a mentor-locked paper, code/data license, CPU scope and expected result before assignment.",
+  "paper": null,
+  "reproduction_tier": null,
+  "compute": "CPU"
+}

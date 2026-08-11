@@ -1,7 +1,6 @@
 import json
 from typing import Any
 
-
 TICKETS: list[dict[str, Any]] = [
     {"id": 1, "title": "prepare onboarding", "status": "open"},
     {"id": 2, "title": "review README", "status": "closed"},

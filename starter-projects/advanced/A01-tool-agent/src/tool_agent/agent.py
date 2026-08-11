@@ -23,7 +23,7 @@ class ToolAgent:
             raise ValueError(f"unknown tool: {name}")
         arguments = decision.get("arguments", {})
         if not isinstance(arguments, dict):
-            raise ValueError("tool arguments must be an object")
+            raise ValueError("tool arguments must be an object")  # noqa: TRY004
         try:
             result = tool.handler(**arguments)
         except (TypeError, ValueError) as exc:

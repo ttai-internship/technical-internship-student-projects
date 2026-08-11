@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "description": "Student-facing project contract for the technical internship platform.",
+  "duration_profiles": "config/duration_profiles.json",
   "foundation": {
     "id": "B00",
     "level": "foundation",
@@ -10,7 +11,7 @@
     "notebook": "notebooks/student/foundation/B00-python-foundation.ipynb",
     "readme": "foundation/starter/README.md",
     "tests": "foundation/starter/tests",
-    "duration_core": ["one-week", "one-month"]
+    "duration_core": ["one-week"]
   },
   "projects": [
     {
@@ -110,6 +111,7 @@
       "notebook": "notebooks/student/advanced/A03-paper-reproduction.ipynb",
       "readme": "starter-projects/advanced/A03-paper-reproduction/README.md",
       "tests": "starter-projects/advanced/A03-paper-reproduction/tests",
+      "assignable": false,
       "duration_core": ["one-week", "one-month", "two-month", "half-year"]
     }
   ]
