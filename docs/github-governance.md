@@ -1,6 +1,6 @@
 # GitHub 治理与外部配置
 
-> 决策版本：2026-08-11。组织创建、仓库迁移和分支规则仍属于 GitHub 外部设置，不能仅靠提交 Markdown 自动完成。
+> 决策版本：2026-08-11。`ttai-internship` 已创建，两个基础仓库已迁移；外部权限和保护规则仍以 GitHub 实际设置为准。
 
 ## 已确认的治理决策
 
@@ -18,7 +18,7 @@
 - 公开学生仓：只发布 starter、学生 Notebook、公共测试、任务卡和提交模板。
 - 私有导师仓：维护导师 Notebook、隐藏 Core 测试、评分、assignment pack 和内部记录。
 - 学生私有作业仓：由私有导师仓生成 pack 后单独创建，每个仓只对应一个 pseudonymous assignment ID。
-- 当前公开仓和私有仓仍在 `Densityyang` 个人账号下；组织创建并完成设置核验后，再按迁移计划转入 `ttai-internship`。
+- 公开仓和私有导师仓已迁移至 `ttai-internship`，本地 `origin` 已更新为组织地址。
 
 ## 分发路线
 
@@ -34,7 +34,7 @@ GitHub Classroom 已进入迁移期，不作为新项目的默认依赖。当前
 
 ## PR 与合并门禁
 
-1. `main` 禁止直接 push、force-push 和删除。
+1. 目标策略是 `main` 禁止直接 push、force-push 和删除；目前公开仓已由 GitHub 分支保护执行，私有仓受 Free 计划限制尚未能启用原生保护。
 2. PR 必须先完成人工审查，再通过对应 CI：公开仓为 `student-checks`，私有仓为 `repository-checks`。
 3. 默认采用 squash merge；关闭 Auto-merge。P0→P1→P2 等 stacked PR 必须按依赖顺序合并，未完成下游合并前不要删除中间分支。
 4. 当前所有审查由 `Densityyang` 执行。由于 PR 作者不能批准自己的 PR，GitHub 的“至少一名审批人”规则应在第二个导师账号加入后再启用；在此之前，人工审查记录和 CI 是实际门禁。
@@ -44,15 +44,17 @@ GitHub Classroom 已进入迁移期，不作为新项目的默认依赖。当前
 
 - 每个工作流声明 `permissions: contents: read`，不向学生 PR 提供写权限或生产 Secrets。
 - 第三方 Action 固定到完整 commit SHA，并由 Dependabot 提交更新 PR。
-- 组织创建后，Actions 允许列表收紧为实际使用的 Action（如 checkout、setup-python、setup-uv），不长期保留仓库级 `allowed_actions: all`。
+- 两个仓库已将 Actions 允许列表收紧为 GitHub-owned actions 与 `astral-sh/setup-uv@*`；工作流仍固定到完整 commit SHA。组织级白名单仍待 `admin:org` 授权后配置。
 - 来自学生仓库或 Fork 的代码只能在无敏感 Secrets 的环境执行；需要外部服务时必须提供离线 fallback 或固定 trace。
 
-## 当前外部设置待执行
+## 当前外部设置状态
 
-- 创建 `ttai-internship`，当前账号作为唯一 Owner；暂不邀请其他成员。
-- 将公开学生仓和私有导师仓迁移到组织，并核对迁移后的 remote、Actions、Dependabot 和访问权限。
-- 在组织/仓库层配置 `main` 分支保护；公开仓可使用 Free 分支保护，私有仓需确认组织方案是否支持保护规则。
-- 创建后续角色：`mentor-reviewer`、`assignment-operator`、`data-retention-admin`；当前均由 `Densityyang` 承担。
+- ✅ `ttai-internship` 已创建，`Densityyang` 当前为唯一 Owner。
+- ✅ 公开学生仓和私有导师仓已迁移，PR 链和本地 remote 已核对。
+- ✅ 公开仓 `main` 已要求 `all-checks`、PR、线性历史、对话解决，并禁止 force-push/删除。
+- ⚠️ 私有仓 `main` 在当前 Free 计划下无法启用分支保护；若要严格执行“学生只能提交 PR、审核后 CI 通过才合并”，需要升级到支持私有仓保护规则的计划。
+- ⏳ 组织默认仓库权限、成员创建仓库权限和组织级 Actions 策略仍需 `admin:org` 授权后收紧；当前不要邀请学生成为组织成员。
+- ⏳ 创建后续角色：`mentor-reviewer`、`assignment-operator`、`data-retention-admin`；当前均由 `Densityyang` 承担。
 - 建立 30 天删除台账，不把真实身份映射或删除记录提交到 Git。
 
 具体留存规则见[数据留存与删除政策](data-retention.md)。
