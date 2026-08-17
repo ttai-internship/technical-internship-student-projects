@@ -1,11 +1,19 @@
-# AI use disclosure
+# AI 使用说明
 
-AI tools are allowed as learning and engineering aids. They are not a
-substitute for understanding, testing, or oral explanation.
+可以使用 AI 辅助学习与工程实践，但 AI 不能替代你对代码的理解、测试和现场解释。
 
-| Tool | Purpose | Important prompt or input | What I kept or changed | How I validated it |
+请记录每一次对成果有实质影响的使用；不要粘贴密钥、个人信息或未脱敏数据。
+
+如果本次没有实质性使用 AI，请删除空表内容并明确写：`无实质性 AI 使用`。
+
+| 工具 | 用途 | 关键提示词或输入摘要 | 我保留或修改了什么 | 我如何验证 |
 |---|---|---|---|---|
 |  |  |  |  |  |
 
-Before submission, explain one AI-suggested change that you rejected or
-rewrote, and why.
+提交前，请补充一个你拒绝或重写 AI 建议的例子，并说明原因。
+
+## 被拒绝或重写的建议
+
+- 建议摘要：
+- 我的处理：
+- 原因：

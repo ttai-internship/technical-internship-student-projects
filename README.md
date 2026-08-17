@@ -93,6 +93,8 @@ git push -u origin feature/<project-id>-<slice>
 - `curriculum/`：课程、Bilibili 和行业内容入口；
 - `scripts/`：环境、项目选择、测试和 Notebook 执行；
 - `.github/workflows/`：学生仓 CI；Action 已固定到完整 commit SHA。
+- `config/dependency_policy.json`：uv、Conda、starter 和独立作业包的统一依赖边界；
+- `templates/student-ci.yml`：一人一仓作业包使用的锁定 CI 模板；
 - [CONTRIBUTING.md](CONTRIBUTING.md)：分支、commit、push 和 PR 规范；
 - [SECURITY.md](SECURITY.md)：凭据、隐私和教学数据边界。
 - [环境说明](docs/environment.md)：uv 和 Conda 两条等价入口；

@@ -31,4 +31,12 @@ conda run --name technical-internship python scripts\run_public_tests.py
 
 ## 学生 assignment pack
 
-独立学生包不要求安装导师仓的隐藏依赖。按包内 `README.md` 或 `requirements.txt` 安装项目依赖，并使用包内生成的 CI。学生包不能通过复制导师仓的 `uv.lock` 来获得隐藏测试或评分材料。
+独立学生包不安装导师仓的隐藏测试或评分依赖。每份包都有项目专属的 `pyproject.toml` 和 `uv.lock`，统一执行：
+
+```powershell
+uv sync --locked --python 3.12
+uv run --locked python scripts\validate_submission.py
+uv run --locked python -m unittest discover -s tests -v
+```
+
+作业锁文件只包含学生项目、Notebook、Lint 和公开测试所需依赖，不复制导师仓的完整锁文件。学生不得修改锁文件、CI 或验证脚本来绕过验收；导师评分会再次核对 assignment baseline。
