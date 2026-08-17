@@ -2,7 +2,13 @@ name: student-checks
 
 on:
   push:
+    branches: [main]
   pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -32,11 +38,17 @@ jobs:
       - name: Validate student project contract
         run: uv run --locked python scripts/validate_projects.py
 
+      - name: Validate dependency policy
+        run: uv run --locked python scripts/validate_dependencies.py
+
+      - name: Scan tracked files for secrets
+        run: uv run --locked python scripts/security_scan.py
+
       - name: Validate documentation links and notebook IDs
         run: uv run --locked python scripts/validate_docs.py
 
       - name: Lint repository scripts
-        run: uv run --locked ruff check scripts starter-projects
+        run: uv run --locked ruff check scripts starter-projects templates/validate_submission.py
 
       - name: Run public tests
         run: uv run --locked python scripts/run_public_tests.py

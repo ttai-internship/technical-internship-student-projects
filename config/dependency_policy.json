@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "python": "3.12",
+  "root": {
+    "default": [
+      "numpy>=1.24,<2"
+    ],
+    "dev": [
+      "ruff>=0.9,<1"
+    ],
+    "notebooks": [
+      "ipykernel>=6.29,<7",
+      "nbclient>=0.10,<1",
+      "nbconvert>=7.16,<8",
+      "nbformat>=5.10,<6"
+    ],
+    "ml": [
+      "pandas>=2,<3",
+      "scikit-learn>=1.3,<2"
+    ],
+    "dl": [
+      "torch>=2.13,<2.14"
+    ]
+  },
+  "environment": [
+    "numpy>=1.24,<2",
+    "ruff>=0.9,<1",
+    "ipykernel>=6.29,<7",
+    "nbclient>=0.10,<1",
+    "nbconvert>=7.16,<8",
+    "nbformat>=5.10,<6",
+    "pandas>=2,<3",
+    "scikit-learn>=1.3,<2",
+    "torch>=2.13,<2.14"
+  ],
+  "assignment_base": [
+    "ruff>=0.9,<1",
+    "ipykernel>=6.29,<7",
+    "nbclient>=0.10,<1",
+    "nbconvert>=7.16,<8",
+    "nbformat>=5.10,<6"
+  ],
+  "assignment_dependencies": {
+    "B00": [],
+    "B01": [],
+    "B02": [],
+    "B03": [],
+    "M01": [
+      "numpy>=1.24,<2",
+      "pandas>=2,<3",
+      "scikit-learn>=1.3,<2"
+    ],
+    "M02": [
+      "numpy>=1.24,<2",
+      "torch>=2.13,<2.14"
+    ],
+    "M03": [],
+    "A01": [],
+    "A02": [],
+    "A03": [
+      "numpy>=1.24,<2"
+    ]
+  },
+  "starter_requirement_files": {
+    "M01": "starter-projects/intermediate/M01-tabular-ml/requirements.txt",
+    "M02": "starter-projects/intermediate/M02-small-dl/requirements.txt",
+    "A03": "starter-projects/advanced/A03-paper-reproduction/requirements.txt"
+  }
+}

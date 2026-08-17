@@ -26,6 +26,7 @@ REQUIRED_FIELDS = {
     "notebook",
     "readme",
     "tests",
+    "assignment_mode",
     "duration_core",
 }
 EXPECTED_IDS = {"B01", "B02", "B03", "M01", "M02", "M03", "A01", "A02", "A03"}
@@ -39,6 +40,7 @@ FOUNDATION_REQUIRED_FIELDS = {
     "notebook",
     "readme",
     "tests",
+    "assignment_mode",
     "duration_core",
 }
 
@@ -103,6 +105,9 @@ def validate() -> list[str]:
             if set(profiles or {}) != expected_durations:
                 errors.append(f"duration profiles must be {sorted(expected_durations)}")
 
+    if manifest.get("schema_version") != 2:
+        errors.append("project manifest schema_version must be 2")
+
     projects = manifest.get("projects")
     if not isinstance(projects, list):
         return ["manifest.projects must be a list"]
@@ -132,6 +137,9 @@ def validate() -> list[str]:
             errors.append(f"{project_id}: invalid level {project.get('level')!r}")
         if not isinstance(project.get("duration_core"), list) or not project["duration_core"]:
             errors.append(f"{project_id}: duration_core must be a non-empty list")
+        expected_mode = "requires-paper-pack" if project_id == "A03" else "direct"
+        if project.get("assignment_mode") != expected_mode:
+            errors.append(f"{project_id}: assignment_mode must be {expected_mode!r}")
 
         for field in ("task", "starter", "notebook", "readme", "tests"):
             value = project.get(field)
@@ -156,6 +164,8 @@ def validate() -> list[str]:
             errors.append(f"foundation id must be 'B00', got {foundation.get('id')!r}")
         if foundation.get("level") != "foundation":
             errors.append(f"B00: level must be 'foundation', got {foundation.get('level')!r}")
+        if foundation.get("assignment_mode") != "direct":
+            errors.append("B00: assignment_mode must be 'direct'")
         if not isinstance(foundation.get("duration_core"), list) or not foundation["duration_core"]:
             errors.append("B00: duration_core must be a non-empty list")
         for field in ("task", "starter", "notebook", "readme", "tests"):
