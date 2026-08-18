@@ -10,7 +10,7 @@
 
 1. 先完成第一天的简历诊断、面试、环境配置和共同学习记录；课程与博客推荐只作为学习入口，不要求把所有内容看完。
 2. 如果没有编程基础，先完成 [B00 零基础起步门](foundation/README.md) 及其诊断；通过后仍然从初级的 B01/B02/B03 三选一。不要因为对 AI 感兴趣就跳过基础门。
-3. 选择一个主项目后，先阅读项目卡、学生版 Notebook 和 starter README，再创建分支、运行公共测试，最后按项目要求提交代码、Notebook 证据和复盘材料。
+3. 选择一个主项目后，先阅读项目卡、学生版 Notebook 和 starter README，再创建分支、运行公共测试；实习期间可用多个 Task/Node 记录日常工作，最终仍需单独提交所选项目的代码、Notebook 证据和复盘材料。
 
 本仓库是学生公开仓，只包含 starter、学生版 Notebook、公共测试和提交模板。导师 Notebook、隐藏 Core 测试和评分记录留在私有导师仓；请勿尝试提交凭据、隐藏测试或他人的个人数据。
 
@@ -78,7 +78,7 @@ git commit -m "feat: complete <project-id> Core"
 git push -u origin feature/<project-id>-<slice>
 ```
 
-每次提交后检查 GitHub Actions。提交说明、日报和报告模板位于 `templates/`；统一评价口径见 [assessment](docs/assessment.md)。
+每次提交后检查 GitHub Actions。提交说明、实习经历、日报和 AI 使用模板位于 `templates/`；实习经历与正式项目提交的边界见 [experience-and-submission](docs/experience-and-submission.md)，统一评价口径见 [assessment](docs/assessment.md)。
 
 ## 论文阅读入口
 
@@ -95,6 +95,8 @@ git push -u origin feature/<project-id>-<slice>
 - `.github/workflows/`：学生仓 CI；Action 已固定到完整 commit SHA。
 - `config/dependency_policy.json`：uv、Conda、starter 和独立作业包的统一依赖边界；
 - `templates/student-ci.yml`：一人一仓作业包使用的锁定 CI 模板；
+- `templates/internship-experience.md`：多个任务和节点的学生记录模板；
+- `docs/experience-and-submission.md`：日常经历与正式项目提交的公开边界；
 - [CONTRIBUTING.md](CONTRIBUTING.md)：分支、commit、push 和 PR 规范；
 - [SECURITY.md](SECURITY.md)：凭据、隐私和教学数据边界。
 - [环境说明](docs/environment.md)：uv 和 Conda 两条等价入口；

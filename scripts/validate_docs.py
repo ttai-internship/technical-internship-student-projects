@@ -12,6 +12,10 @@ import nbformat
 ROOT = Path(__file__).resolve().parents[1]
 LINK_PATTERN = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
 CELL_ID_PATTERN = re.compile(r"^[A-Za-z0-9-_]{1,64}$")
+TEMPLATE_CONTRACTS = {
+    "templates/internship-experience.md": ("## 任务记录", "## 节点记录", "## 证据边界"),
+    "templates/student-submission.md": ("## 项目提交证据", "## 给导师的复盘", "### 学员收获", "### 建议", "### 推荐"),
+}
 
 
 def local_link_errors() -> list[str]:
@@ -59,8 +63,22 @@ def notebook_errors() -> list[str]:
     return errors
 
 
+def template_contract_errors() -> list[str]:
+    errors: list[str] = []
+    for relative, headings in TEMPLATE_CONTRACTS.items():
+        path = ROOT / relative
+        if not path.is_file():
+            errors.append(f"missing public template: {relative}")
+            continue
+        text = path.read_text(encoding="utf-8")
+        for heading in headings:
+            if re.search(rf"(?m)^{re.escape(heading)}\s*$", text) is None:
+                errors.append(f"{relative}: missing required heading {heading}")
+    return errors
+
+
 def main() -> int:
-    errors = local_link_errors() + notebook_errors()
+    errors = local_link_errors() + notebook_errors() + template_contract_errors()
     if errors:
         for error in errors:
             print(f"ERROR {error}", file=sys.stderr)
